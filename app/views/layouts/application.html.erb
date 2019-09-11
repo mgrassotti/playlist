@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Playlist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Song playlist manager app">
+    <meta name="author" content="Matteo Grassotti">
+    <meta name="robots" content="noindex, nofollow">
+    <%= favicon_link_tag "ruby.ico" %>
+
+    <title>My Playlist</title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

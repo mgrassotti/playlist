@@ -1,0 +1,31 @@
+<div class="col-md-12 text-center">
+  <h3>⚡️🤘 Atlas, Rise 🤘⚡️</h3>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center;">Metallica</div>
+      <div class="panel-body">
+        <div class="col-md-12">
+          <div class="panel-body">
+            <% Song.all.order(:status).group(:status).count.each do |status, count| %>
+              <span class='label label-<%= badge_class(status) %>' style='font-size: 12px;'><%= status %>: <%= count %></span>
+            <% end %>
+          </div>
+        </div>
+        <% @songs.each do |song| %>
+          <%= render partial: 'song', locals: { song: song } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).on("click", ".lyrics", function(e){
+    e.preventDefault();
+    songname = $(this).data().name;
+    href = "https://www.google.com/search?q=" + songname + " lyrics";
+    $("#helper_link").attr("href", href)
+    win = window.open(href, '_blank');
+    if(win){ win.focus(); }
+    else { alert('Please allow popups for this website'); }
+  });
+</script>

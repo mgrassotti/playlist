@@ -1,0 +1,16 @@
+<div class="col-md-4 col-sm-6">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <%= song.status_badge.html_safe %><%= song.name %>
+    </li>
+    <li class="list-group-item">
+        <% if song.tab_path %>
+          <%= link_to "tab", song.tab_path, class: "btn btn-success", target: "_blank" %>
+        <% else %>
+          <%= link_to "tab", 'https://www.songsterr.com/a/wa/search?pattern=' + song['name'], class: "btn btn-success", target: "_blank" %>
+        <% end %>
+        <a href="#" class="lyrics btn btn-primary" target="_blank" data-name="<%= song['name'] %>">lyrics</a>
+        <%= link_to "song", song['url'].presence || "https://music.youtube.com/search?q=" + song['name'], class: "btn btn-danger", target: "_blank" %>
+    </li>
+  </ul>
+</div>
